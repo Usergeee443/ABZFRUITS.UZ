@@ -1,0 +1,23 @@
+{
+	"home_title": "Bienvenue chez Dried Fruits Delight",
+	"home_desc": "Découvrez notre sélection premium de fruits secs, parfaits pour des collations saines et des créations culinaires.",
+	"products_title": "Nos Fruits Secs",
+	"products_desc": "Explorez notre gamme de fruits secs de haute qualité, provenant des meilleures fermes.",
+	"contact_title": "Contactez-nous",
+	"contact_desc": "Des questions ? Contactez-nous pour plus d'informations ou des demandes.",
+	"nav_home": "Accueil",
+	"nav_products": "Produits",
+	"nav_contact": "Contact",
+	"lang_en": "Anglais",
+	"lang_es": "Espagnol",
+	"lang_fr": "Français",
+	"buy_now": "Acheter Maintenant",
+	"contact_us": "Contactez-nous",
+	"almonds": "Amandes",
+	"apricots": "Abricots",
+	"raisins": "Raisins secs",
+	"name_label": "Nom",
+	"email_label": "Email",
+	"message_label": "Message",
+	"submit": "Soumettre"
+}

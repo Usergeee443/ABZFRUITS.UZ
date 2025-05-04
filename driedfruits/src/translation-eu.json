@@ -1,0 +1,23 @@
+{
+	"home_title": "Bienvenido a Dried Fruits Delight",
+	"home_desc": "Descubre nuestra selección premium de frutas secas, perfectas para refrigerios saludables y creaciones culinarias.",
+	"products_title": "Nuestras Frutas Secas",
+	"products_desc": "Explora nuestra gama de frutas secas de alta calidad, provenientes de las mejores granjas.",
+	"contact_title": "Contáctanos",
+	"contact_desc": "¿Tienes preguntas? Contáctanos para más información o consultas.",
+	"nav_home": "Inicio",
+	"nav_products": "Productos",
+	"nav_contact": "Contacto",
+	"lang_en": "Inglés",
+	"lang_es": "Español",
+	"lang_fr": "Francés",
+	"buy_now": "Comprar Ahora",
+	"contact_us": "Contáctanos",
+	"almonds": "Almendras",
+	"apricots": "Albaricoques",
+	"raisins": "Pasas",
+	"name_label": "Nombre",
+	"email_label": "Correo Electrónico",
+	"message_label": "Mensaje",
+	"submit": "Enviar"
+}
