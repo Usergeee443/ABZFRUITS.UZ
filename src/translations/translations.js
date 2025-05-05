@@ -1,6 +1,6 @@
 export const translations = {
   uz: {
-    siteName: "ABZ.uz",
+    siteName: "Abdushkur Zamin Baraka",
     home: "Bosh sahifa",
     products: "Mahsulotlar",
     about: "Biz haqimizda",
@@ -10,11 +10,21 @@ export const translations = {
     productsText: "Bizning yuqori sifatli mahsulotlarimiz",
     aboutText: "Biz mijozlarimizga eng yaxshi xizmatlarni taqdim etishga intilamiz",
     contactText: "Quyidagi aloqa ma'lumotlari orqali biz bilan bog'laning",
-    language: "Til",
-    selectLanguage: "Tilni tanlang"
+    slide1Title: "Yangi texnologiyalar",
+    slide1Text: "Eng yangi texnologiyalar va innovatsion yechimlar",
+    slide2Title: "Professional jamoa",
+    slide2Text: "Tajribali mutaxassislar tomonidan yuqori sifatli xizmatlar",
+    slide3Title: "Ishonchli hamkor",
+    slide3Text: "Sizning ishonchli hamkoringiz bo'lishdan faxrlanamiz",
+    viewProducts: "Mahsulotlarni ko'rish",
+    learnMore: "Batafsil ma'lumot",
+    contactUs: "Biz bilan bog'laning",
+    address: "Toshkent shahri, Chilonzor tumani",
+    phone: "+998 90 123 45 67",
+    copyright: "© 2024 Abdushkur Zamin Baraka. Barcha huquqlar himoyalangan."
   },
   en: {
-    siteName: "ABZ.uz",
+    siteName: "Abdushkur Zamin Baraka",
     home: "Home",
     products: "Products",
     about: "About Us",
@@ -24,11 +34,21 @@ export const translations = {
     productsText: "Our high-quality products",
     aboutText: "We strive to provide the best services to our customers",
     contactText: "Get in touch with us through our contact information below",
-    language: "Language",
-    selectLanguage: "Select language"
+    slide1Title: "New Technologies",
+    slide1Text: "Latest technologies and innovative solutions",
+    slide2Title: "Professional Team",
+    slide2Text: "High-quality services by experienced specialists",
+    slide3Title: "Reliable Partner",
+    slide3Text: "We are proud to be your reliable partner",
+    viewProducts: "View Products",
+    learnMore: "Learn More",
+    contactUs: "Contact Us",
+    address: "Chilonzor district, Tashkent city",
+    phone: "+998 90 123 45 67",
+    copyright: "© 2024 Abdushkur Zamin Baraka. All rights reserved."
   },
   zh: {
-    siteName: "ABZ.uz",
+    siteName: "Abdushkur Zamin Baraka",
     home: "首页",
     products: "产品",
     about: "关于我们",
@@ -38,7 +58,17 @@ export const translations = {
     productsText: "我们的高质量产品",
     aboutText: "我们致力于为客户提供最好的服务",
     contactText: "通过以下联系方式与我们取得联系",
-    language: "语言",
-    selectLanguage: "选择语言"
+    slide1Title: "新技术",
+    slide1Text: "最新技术和创新解决方案",
+    slide2Title: "专业团队",
+    slide2Text: "由经验丰富的专家提供的高质量服务",
+    slide3Title: "可靠的合作伙伴",
+    slide3Text: "我们很荣幸成为您可靠的合作伙伴",
+    viewProducts: "查看产品",
+    learnMore: "了解更多",
+    contactUs: "联系我们",
+    address: "塔什干市，奇伦扎尔区",
+    phone: "+998 90 123 45 67",
+    copyright: "© 2024 Abdushkur Zamin Baraka. 版权所有。"
   }
 }; 
