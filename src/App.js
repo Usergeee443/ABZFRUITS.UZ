@@ -7,6 +7,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import './index.css';
+import ProductsPage from './pages/ProductsPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   const [language, setLanguage] = useState('uz');
@@ -174,9 +176,9 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Home language={language} />} />
-            <Route path="/products" element={<div className="container"><Products language={language} /></div>} />
-            <Route path="/about" element={<div className="container"><About language={language} /></div>} />
-            <Route path="/contact" element={<div className="container"><Contact language={language} /></div>} />
+            <Route path="/products" element={<ProductsPage language={language} />} />
+            <Route path="/about" element={<About language={language} />} />
+            <Route path="/contact" element={<ContactPage language={language} />} />
           </Routes>
         </main>
         <footer className="footer">
@@ -195,25 +197,25 @@ function Home({ language }) {
     {
       id: 1,
       name: 'Bodom',
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
+      image: 'https://media.istockphoto.com/id/1360789044/photo/almonds-isolated-on-wooden-background-flat-lay.jpg?s=612x612&w=0&k=20&c=m3JUwL1ru0rHGQwdtkHpl7PjWjvdGzbMKcTnkyJmzFw=',
       desc: 'Yuqori sifatli bodom, foydali va mazali.'
     },
     {
       id: 2,
       name: 'Pista',
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
+      image: 'https://media.istockphoto.com/id/2160545676/photo/pistachios-kernels-roasted-and-salted-nuts-in-a-wooden-bowl-on-linen.jpg?s=612x612&w=0&k=20&c=LzXR9Vali-YZQbsDpFIa14qtFlEh6tYPiFBp8b0IA28=',
       desc: 'Tabiiy pista, energiya va vitaminlarga boy.'
     },
     {
       id: 3,
       name: "Mayiz",
-      image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=400&q=80',
+      image: 'https://media.istockphoto.com/id/974877012/photo/a-sweet-dried-fruit-golden-raisins-or-vitis-vinifera-l-var-apyrena-kishmish-or-zante-currant.jpg?s=612x612&w=0&k=20&c=GXsf2GohOelfEev00W1wxurB247YCHagcHEdq269WzA=',
       desc: "Shirin va tabiiy mayiz."
     },
     {
       id: 4,
       name: "O'rik quritilgan",
-      image: 'https://images.unsplash.com/photo-1506089676908-3592f7389d4d?auto=format&fit=crop&w=400&q=80',
+      image: 'https://media.istockphoto.com/id/542330328/photo/organic-raw-dry-apricots.jpg?s=612x612&w=0&k=20&c=_hXZ6EDk4h0fcbEj-bequdeN_YtWpPOJLqYMw_Ipz5s=',
       desc: "Vitaminlarga boy quritilgan o'rik."
     },
     {
@@ -242,21 +244,21 @@ function Home({ language }) {
       text: translations[language].slide1Text,
       linkText: translations[language].viewProducts,
       linkTo: '/products',
-      image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80'
+      image: 'https://media.istockphoto.com/id/523458571/photo/organic-healthy-assorted-dried-fruit.jpg?s=612x612&w=0&k=20&c=PuuQap2lSgZNoZO0OPyiEQr0Qy9hvX12m8xHlNJ54FU='
     },
     {
       title: translations[language].slide2Title,
       text: translations[language].slide2Text,
       linkText: translations[language].learnMore,
       linkTo: '/about',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2560&q=80'
+      image: 'https://media.istockphoto.com/id/175384554/photo/dried-apricots.jpg?s=612x612&w=0&k=20&c=gwC_nVRm_zWQET3krFqHppWkwvvc0D3GyCxCq0RBR0U='
     },
     {
       title: translations[language].slide3Title,
       text: translations[language].slide3Text,
       linkText: translations[language].contactUs,
       linkTo: '/contact',
-      image: 'https://images.unsplash.com/photo-1745953130006-357aa055eee7?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwyMHx8fGVufDB8fHx8fA%3D%3D'
+      image: 'https://media.istockphoto.com/id/2176735154/photo/dried-tropical-fruits-nuts-and-raisins-on-a-beige-background.jpg?s=612x612&w=0&k=20&c=jcW8JfrgVuWyDfaqdNEn1AwBDjXnGatHVNBYYufhRAQ='
     }
   ];
 
@@ -435,29 +437,11 @@ function Home({ language }) {
   );
 }
 
-function Products({ language }) {
-  return (
-    <div className="page-content">
-      <h1 className="page-title">{translations[language].products}</h1>
-      <p className="page-text">{translations[language].productsText}</p>
-    </div>
-  );
-}
-
 function About({ language }) {
   return (
-    <div className="page-content">
-      <h1 className="page-title">{translations[language].about}</h1>
-      <p className="page-text">{translations[language].aboutText}</p>
-    </div>
-  );
-}
-
-function Contact({ language }) {
-  return (
-    <div className="page-content">
-      <h1 className="page-title">{translations[language].contact}</h1>
-      <p className="page-text">{translations[language].contactText}</p>
+    <div className="about-page">
+      <h1>{translations[language].about}</h1>
+      <p>{translations[language].aboutText}</p>
     </div>
   );
 }
