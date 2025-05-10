@@ -9,6 +9,8 @@ import 'swiper/css/pagination';
 import './index.css';
 import ProductsPage from './pages/ProductsPage';
 import ContactPage from './pages/ContactPage';
+import AboutPage from './pages/AboutPage';
+import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
   const [language, setLanguage] = useState('uz');
@@ -47,148 +49,150 @@ function App() {
   }, [isLanguageDropdownOpen]);
 
   return (
-    <Router>
-      <div className="app">
-        {/* Header */}
-        <header>
-          <div className="container">
-            <div className="header-content">
-              <Link to="/" className="logo">
-                {translations[language].siteName}
-              </Link>
+    <LanguageProvider>
+      <Router>
+        <div className="app">
+          {/* Header */}
+          <header>
+            <div className="container">
+              <div className="header-content">
+                <Link to="/" className="logo">
+                  {translations[language].siteName}
+                </Link>
 
-              {/* Desktop Navigation */}
-              <div className="nav-container">
-                <nav>
-                  <Link to="/" className="nav-link">
+                {/* Desktop Navigation */}
+                <div className="nav-container">
+                  <nav>
+                    <Link to="/" className="nav-link">
+                      {translations[language].home}
+                    </Link>
+                    <Link to="/products" className="nav-link">
+                      {translations[language].products}
+                    </Link>
+                    <Link to="/about" className="nav-link">
+                      {translations[language].about}
+                    </Link>
+                    <Link to="/contact" className="nav-link">
+                      {translations[language].contact}
+                    </Link>
+                  </nav>
+
+                  {/* Language Selector */}
+                  <div className="language-selector">
+                    <button 
+                      className={`language-button ${isLanguageDropdownOpen ? 'active' : ''}`}
+                      onClick={toggleLanguageDropdown}
+                    >
+                      <span>{language.toUpperCase()}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                    <div className={`language-dropdown ${isLanguageDropdownOpen ? 'active' : ''}`}>
+                      <div 
+                        className={`language-option ${language === 'uz' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('uz')}
+                      >
+                        UZ
+                      </div>
+                      <div 
+                        className={`language-option ${language === 'en' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('en')}
+                      >
+                        EN
+                      </div>
+                      <div 
+                        className={`language-option ${language === 'zh' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('zh')}
+                      >
+                        ZH
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Controls */}
+                <div className="mobile-controls">
+                  {/* Language Selector */}
+                  <div className="language-selector">
+                    <button 
+                      className={`language-button ${isLanguageDropdownOpen ? 'active' : ''}`}
+                      onClick={toggleLanguageDropdown}
+                    >
+                      <span>{language.toUpperCase()}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                        <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                    <div className={`language-dropdown ${isLanguageDropdownOpen ? 'active' : ''}`}>
+                      <div 
+                        className={`language-option ${language === 'uz' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('uz')}
+                      >
+                        UZ
+                      </div>
+                      <div 
+                        className={`language-option ${language === 'en' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('en')}
+                      >
+                        EN
+                      </div>
+                      <div 
+                        className={`language-option ${language === 'zh' ? 'active' : ''}`}
+                        onClick={() => changeLanguage('zh')}
+                      >
+                        ZH
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Mobile Menu Button */}
+                  <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Mobile Menu */}
+              <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
+                <nav className="mobile-nav">
+                  <Link to="/" className="nav-link" onClick={toggleMobileMenu}>
                     {translations[language].home}
                   </Link>
-                  <Link to="/products" className="nav-link">
+                  <Link to="/products" className="nav-link" onClick={toggleMobileMenu}>
                     {translations[language].products}
                   </Link>
-                  <Link to="/about" className="nav-link">
+                  <Link to="/about" className="nav-link" onClick={toggleMobileMenu}>
                     {translations[language].about}
                   </Link>
-                  <Link to="/contact" className="nav-link">
+                  <Link to="/contact" className="nav-link" onClick={toggleMobileMenu}>
                     {translations[language].contact}
                   </Link>
                 </nav>
-
-                {/* Language Selector */}
-                <div className="language-selector">
-                  <button 
-                    className={`language-button ${isLanguageDropdownOpen ? 'active' : ''}`}
-                    onClick={toggleLanguageDropdown}
-                  >
-                    <span>{language.toUpperCase()}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  <div className={`language-dropdown ${isLanguageDropdownOpen ? 'active' : ''}`}>
-                    <div 
-                      className={`language-option ${language === 'uz' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('uz')}
-                    >
-                      UZ
-                    </div>
-                    <div 
-                      className={`language-option ${language === 'en' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('en')}
-                    >
-                      EN
-                    </div>
-                    <div 
-                      className={`language-option ${language === 'zh' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('zh')}
-                    >
-                      ZH
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Controls */}
-              <div className="mobile-controls">
-                {/* Language Selector */}
-                <div className="language-selector">
-                  <button 
-                    className={`language-button ${isLanguageDropdownOpen ? 'active' : ''}`}
-                    onClick={toggleLanguageDropdown}
-                  >
-                    <span>{language.toUpperCase()}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                      <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                    </svg>
-                  </button>
-                  <div className={`language-dropdown ${isLanguageDropdownOpen ? 'active' : ''}`}>
-                    <div 
-                      className={`language-option ${language === 'uz' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('uz')}
-                    >
-                      UZ
-                    </div>
-                    <div 
-                      className={`language-option ${language === 'en' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('en')}
-                    >
-                      EN
-                    </div>
-                    <div 
-                      className={`language-option ${language === 'zh' ? 'active' : ''}`}
-                      onClick={() => changeLanguage('zh')}
-                    >
-                      ZH
-                    </div>
-                  </div>
-                </div>
-
-                {/* Mobile Menu Button */}
-                <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
-                  <span></span>
-                  <span></span>
-                  <span></span>
-                </button>
               </div>
             </div>
+          </header>
 
-            {/* Mobile Menu */}
-            <div className={`mobile-menu ${isMobileMenuOpen ? 'active' : ''}`}>
-              <nav className="mobile-nav">
-                <Link to="/" className="nav-link" onClick={toggleMobileMenu}>
-                  {translations[language].home}
-                </Link>
-                <Link to="/products" className="nav-link" onClick={toggleMobileMenu}>
-                  {translations[language].products}
-                </Link>
-                <Link to="/about" className="nav-link" onClick={toggleMobileMenu}>
-                  {translations[language].about}
-                </Link>
-                <Link to="/contact" className="nav-link" onClick={toggleMobileMenu}>
-                  {translations[language].contact}
-                </Link>
-              </nav>
+          {/* Main Content */}
+          <main>
+            <Routes>
+              <Route path="/" element={<Home language={language} />} />
+              <Route path="/products" element={<ProductsPage language={language} />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<ContactPage language={language} />} />
+            </Routes>
+          </main>
+          <footer className="footer">
+            <div className="footer-content">
+              <span className="footer-title">{translations[language].siteName}</span>
+              <span className="footer-copy">{translations[language].copyright}</span>
             </div>
-          </div>
-        </header>
-
-        {/* Main Content */}
-        <main>
-          <Routes>
-            <Route path="/" element={<Home language={language} />} />
-            <Route path="/products" element={<ProductsPage language={language} />} />
-            <Route path="/about" element={<About language={language} />} />
-            <Route path="/contact" element={<ContactPage language={language} />} />
-          </Routes>
-        </main>
-        <footer className="footer">
-          <div className="footer-content">
-            <span className="footer-title">{translations[language].siteName}</span>
-            <span className="footer-copy">{translations[language].copyright}</span>
-          </div>
-        </footer>
-      </div>
-    </Router>
+          </footer>
+        </div>
+      </Router>
+    </LanguageProvider>
   );
 }
 

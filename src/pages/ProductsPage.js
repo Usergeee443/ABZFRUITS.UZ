@@ -3,6 +3,7 @@ import { translations } from '../translations/translations';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaSearch, FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import '../styles/products.css';
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Demo uchun mahsulotlar va kategoriyalar
 const categories = [
@@ -61,13 +62,14 @@ const allProducts = [
   },
 ];
 
-export default function ProductsPage({ language }) {
+const ProductsPage = () => {
+  const { language } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState('all');
-  const [search, setSearch] = useState('');
+  const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState([]);
   const [showSheet, setShowSheet] = useState(false);
   const [sheetProduct, setSheetProduct] = useState(null);
-  const [cartOpen, setCartOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
   const [showCheckout, setShowCheckout] = useState(false);
   const [checkoutForm, setCheckoutForm] = useState({ name: '', phone: '', address: '' });
   const [orderSuccess, setOrderSuccess] = useState(false);
@@ -76,7 +78,7 @@ export default function ProductsPage({ language }) {
   // Filter mahsulotlar
   const filteredProducts = allProducts.filter(p =>
     (selectedCategory === 'all' || p.category === selectedCategory) &&
-    p.name.toLowerCase().includes(search.toLowerCase())
+    p.name.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   // Savatga mahsulot qo'shish yoki sonini oshirish
@@ -143,13 +145,13 @@ export default function ProductsPage({ language }) {
   }, [showSheet]);
 
   useEffect(() => {
-    if (!cartOpen) return;
+    if (!isCartOpen) return;
     const handleKey = (e) => {
-      if (e.key === 'Escape') setCartOpen(false);
+      if (e.key === 'Escape') setIsCartOpen(false);
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
-  }, [cartOpen]);
+  }, [isCartOpen]);
 
   // Savat modalining klassi: mobilda bottom sheet, desktopda yon panel
   const cartModalClass = () => {
@@ -168,51 +170,48 @@ export default function ProductsPage({ language }) {
     setOrderSuccess(true);
     setTimeout(() => {
       setCart([]);
-      setCartOpen(false);
+      setIsCartOpen(false);
       setShowCheckout(false);
       setCheckoutForm({ name: '', phone: '', address: '' });
       setOrderSuccess(false);
     }, 2000);
   };
 
+  const handleSearch = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
+  const getTotalPrice = () => {
+    return cart.reduce((total, item) => total + item.count, 0);
+  };
+
   return (
-    <div className="products-page-root">
-      <div className="products-page-header">
-        <h1>{translations[language].products}</h1>
-        <div className="products-page-search-filter">
-          <div className="search-box">
-            <input
-              type="text"
-              placeholder={translations[language].search}
-              value={search}
-              onChange={e => setSearch(e.target.value)}
-              className="products-page-search"
-            />
-            <FaSearch className="search-icon" />
+    <div className="products-page">
+      <div className="products-header">
+        <div className="products-header-content">
+          <h1>{translations[language].products}</h1>
+          <div className="products-controls">
+            <div className="search-box">
+              <input
+                type="text"
+                placeholder={translations[language].search}
+                value={searchQuery}
+                onChange={handleSearch}
+              />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="11" cy="11" r="8"></circle>
+                <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+              </svg>
+            </div>
+            <button className="cart-icon-btn" onClick={() => setIsCartOpen(!isCartOpen)}>
+              Savat
+              {cart.length > 0 && <span className="cart-badge">{cart.reduce((s, i) => s + i.count, 0)}</span>}
+            </button>
           </div>
-          <div className="products-page-categories">
-            {categories.map(cat => (
-              <button
-                key={cat.id}
-                className={`category-btn ${selectedCategory === cat.id ? 'active' : ''}`}
-                onClick={() => setSelectedCategory(cat.id)}
-              >
-                {cat.id === 'all' ? translations[language].allProducts : translations[language][cat.id]}
-              </button>
-            ))}
-          </div>
-        </div>
-        <div className="products-page-cart">
-          <button className="cart-icon-btn" onClick={() => setCartOpen(true)}>
-            <FaShoppingCart className="cart-icon" />
-            {cart.length > 0 && (
-              <span className="cart-badge">{cart.reduce((s, i) => s + i.count, 0)}</span>
-            )}
-          </button>
         </div>
       </div>
 
-      <div className="products-page-grid">
+      <div className="products-grid">
         {filteredProducts.length === 0 ? (
           <div className="products-page-empty">
             <span className="empty-icon">🔍</span>
@@ -281,12 +280,12 @@ export default function ProductsPage({ language }) {
       )}
 
       {/* Savat modal */}
-      {cartOpen && (
-        <div className={`products-page-cart-modal ${cartModalClass()} active`} onClick={() => setCartOpen(false)}>
+      {isCartOpen && (
+        <div className={`products-page-cart-modal ${cartModalClass()} active`} onClick={() => setIsCartOpen(false)}>
           <div className="cart-modal-inner" onClick={e => e.stopPropagation()}>
             <div className="cart-header">
               <h3>{translations[language].cart}</h3>
-              <button onClick={() => setCartOpen(false)} className="close-btn">
+              <button onClick={() => setIsCartOpen(false)} className="close-btn">
                 <span>×</span>
               </button>
             </div>
@@ -327,7 +326,7 @@ export default function ProductsPage({ language }) {
                 <div className="cart-summary">
                   <div className="cart-total">
                     <span>{translations[language].total}:</span>
-                    <span className="total-price">{cart.reduce((s, i) => s + i.count, 0)} {translations[language].items}</span>
+                    <span className="total-price">{getTotalPrice()} {translations[language].items}</span>
                   </div>
 
                   {!showCheckout ? (
@@ -386,4 +385,6 @@ export default function ProductsPage({ language }) {
       )}
     </div>
   );
-} 
+};
+
+export default ProductsPage; 
