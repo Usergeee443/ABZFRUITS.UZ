@@ -3,7 +3,6 @@ import { translations } from '../translations/translations';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaSearch, FaTrash, FaPlus, FaMinus } from 'react-icons/fa';
 import '../styles/products.css';
-import { useLanguage } from '../contexts/LanguageContext';
 
 // Demo uchun mahsulotlar va kategoriyalar
 const categories = [
@@ -62,8 +61,7 @@ const allProducts = [
   },
 ];
 
-const ProductsPage = () => {
-  const { language } = useLanguage();
+const ProductsPage = ({ language }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState([]);

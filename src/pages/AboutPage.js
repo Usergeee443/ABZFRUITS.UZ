@@ -3,9 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { translations } from '../translations/translations';
 import '../styles/about.css';
 
-const AboutPage = () => {
-  const { language } = useLanguage();
-
+const AboutPage = ({ language }) => {
   return (
     <div className="about-page">
       <div className="about-header">

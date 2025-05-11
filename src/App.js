@@ -180,7 +180,7 @@ function App() {
             <Routes>
               <Route path="/" element={<Home language={language} />} />
               <Route path="/products" element={<ProductsPage language={language} />} />
-              <Route path="/about" element={<AboutPage />} />
+              <Route path="/about" element={<AboutPage language={language} />} />
               <Route path="/contact" element={<ContactPage language={language} />} />
             </Routes>
           </main>
@@ -200,45 +200,45 @@ function Home({ language }) {
   const products = [
     {
       id: 1,
-      name: 'Bodom',
+      name: translations[language].product1Name,
       image: 'https://media.istockphoto.com/id/1360789044/photo/almonds-isolated-on-wooden-background-flat-lay.jpg?s=612x612&w=0&k=20&c=m3JUwL1ru0rHGQwdtkHpl7PjWjvdGzbMKcTnkyJmzFw=',
-      desc: 'Yuqori sifatli bodom, foydali va mazali.'
+      desc: translations[language].product1Desc
     },
     {
       id: 2,
-      name: 'Pista',
+      name: translations[language].product2Name,
       image: 'https://media.istockphoto.com/id/2160545676/photo/pistachios-kernels-roasted-and-salted-nuts-in-a-wooden-bowl-on-linen.jpg?s=612x612&w=0&k=20&c=LzXR9Vali-YZQbsDpFIa14qtFlEh6tYPiFBp8b0IA28=',
-      desc: 'Tabiiy pista, energiya va vitaminlarga boy.'
+      desc: translations[language].product2Desc
     },
     {
       id: 3,
-      name: "Mayiz",
+      name: translations[language].product3Name,
       image: 'https://media.istockphoto.com/id/974877012/photo/a-sweet-dried-fruit-golden-raisins-or-vitis-vinifera-l-var-apyrena-kishmish-or-zante-currant.jpg?s=612x612&w=0&k=20&c=GXsf2GohOelfEev00W1wxurB247YCHagcHEdq269WzA=',
-      desc: "Shirin va tabiiy mayiz."
+      desc: translations[language].product3Desc
     },
     {
       id: 4,
-      name: "O'rik quritilgan",
+      name: translations[language].product4Name,
       image: 'https://media.istockphoto.com/id/542330328/photo/organic-raw-dry-apricots.jpg?s=612x612&w=0&k=20&c=_hXZ6EDk4h0fcbEj-bequdeN_YtWpPOJLqYMw_Ipz5s=',
-      desc: "Vitaminlarga boy quritilgan o'rik."
+      desc: translations[language].product4Desc
     },
     {
       id: 5,
-      name: "Anjir",
-      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-      desc: "Tabiiy quritilgan anjir."
+      name: translations[language].product5Name,
+      image: 'https://media.istockphoto.com/id/909621368/photo/dried-figs-on-a-dark-rustic-background.jpg?s=612x612&w=0&k=20&c=63NpXEoHxoTNcG0T1Ei8-wJAsH8b6NnlWfTPwmdMEdo=',
+      desc: translations[language].product5Desc
     },
     {
       id: 6,
-      name: "Anjir",
-      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-      desc: "Tabiiy quritilgan anjir."
+      name: translations[language].product6Name,
+      image: 'https://media.istockphoto.com/id/1212585647/photo/prunes-in-white-ceramic-bowl-on-white-rustic-table.jpg?s=612x612&w=0&k=20&c=bruqgpyLW-IWln3Vm-S742zelFox3ywnDyVIJ5ROOH0=',
+      desc: translations[language].product6Desc
     },
     {
       id: 7,
-      name: "Anjir",
-      image: 'https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=400&q=80',
-      desc: "Tabiiy quritilgan anjir."
+      name: translations[language].product7Name,
+      image: 'https://images.unsplash.com/photo-1595412017587-b7f3117dff54?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJ5JTIwQXByaWNvdHxlbnwwfHwwfHx8MA%3D%3D',
+      desc: translations[language].product7Desc
     }
   ];
 
@@ -382,7 +382,7 @@ function Home({ language }) {
         <span className="emoji-bg emoji-39">🍓</span>
         <span className="emoji-bg emoji-40">🍌</span>
         
-        <h2 className="section-title">Bizning Mahsulotlar</h2>
+        <h2 className="section-title">{translations[language].ourProducts}</h2>
         
         <div className="products-container">
           <div className="products-flex-row">
@@ -398,10 +398,9 @@ function Home({ language }) {
           </div>
         </div>
         
-        {/* To'liq ko'rish tugmasi pastga o'tkazildi */}
-        <a href="/products" className="view-more-btn">
-          To'liq ko'rish
-        </a>
+        <Link to="/products" className="view-more-btn">
+          {translations[language].viewAll}
+        </Link>
       </div>
 
       <div className="contact-about-smoke">
@@ -427,12 +426,12 @@ function Home({ language }) {
         </div>
         <div className="home-about-content">
           <div className="home-about-text">
-            <h2 className="home-about-title">{translations[language].about}</h2>
-            <p className="home-about-desc">{translations[language].aboutText}</p>
+            <h2 className="home-about-title">{translations[language].contactUs}</h2>
+            <p className="home-about-desc">{translations[language].contactText}</p>
           </div>
           <div className="home-about-button">
             <Link to="/contact" className="home-about-btn">
-              {translations[language].learnMore}
+              {translations[language].contactButton}
             </Link>
           </div>
         </div>
