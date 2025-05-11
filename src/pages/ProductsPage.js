@@ -216,7 +216,7 @@ const ProductsPage = ({ language }) => {
             <p>{translations[language].nothingFound}</p>
           </div>
         ) : filteredProducts.map(product => (
-          <div key={product.id} className="product-card" onClick={() => openSheet(product)}>
+          <div key={product.id} className="product-card2" onClick={() => openSheet(product)}>
             <div className="product-image-container">
               <img src={product.image} alt={product.name} />
               <div className="product-overlay">

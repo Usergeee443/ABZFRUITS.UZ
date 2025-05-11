@@ -1167,11 +1167,10 @@ main {
 
 .product-card {
   background: #fff;
-  border-radius: 8px;
+  border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   transition: all 0.3s ease;
-  border: 1px solid #eee;
+  border: 0.1px solid #000000;
 }
 
 .product-image-container {
