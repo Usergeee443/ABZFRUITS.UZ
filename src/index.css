@@ -1272,9 +1272,9 @@ main {
   grid-column: 1 / -1;
   text-align: center;
   padding: 40px;
-  background: #f8f8f8;
+  background: #ffffff;
   border-radius: 12px;
-  border: 1px solid #eee;
+  border: 0.1px solid #000000;
 }
 
 .empty-icon {

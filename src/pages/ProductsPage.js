@@ -16,50 +16,72 @@ const categories = [
 const allProducts = [
   { 
     id: 1, 
-    name: 'Olma', 
+    name: 'Bodom', 
     category: 'fruits', 
-    image: 'https://images.unsplash.com/photo-1746469471553-afa9f34157fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8', 
+    image: 'https://media.istockphoto.com/id/1360789044/photo/almonds-isolated-on-wooden-background-flat-lay.jpg?s=612x612&w=0&k=20&c=m3JUwL1ru0rHGQwdtkHpl7PjWjvdGzbMKcTnkyJmzFw=', 
     desc: 'Yangi uzilgan olma.',
     stock: 100,
     unit: 'kg'
   },
   { 
     id: 2, 
-    name: 'Banan', 
+    name: 'Pista', 
     category: 'fruits', 
-    image: 'https://images.unsplash.com/photo-1746469471553-afa9f34157fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8', 
+    image: 'https://media.istockphoto.com/id/2160545676/photo/pistachios-kernels-roasted-and-salted-nuts-in-a-wooden-bowl-on-linen.jpg?s=612x612&w=0&k=20&c=LzXR9Vali-YZQbsDpFIa14qtFlEh6tYPiFBp8b0IA28=', 
     desc: 'Toza va shirin banan.',
-    stock: 50,
+    stock: 100,
     unit: 'kg'
   },
   { 
     id: 3, 
-    name: 'Sabzi', 
+    name: 'Mayiz', 
     category: 'vegetables', 
-    image: 'https://images.unsplash.com/photo-1746469471553-afa9f34157fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8', 
+    image: 'https://media.istockphoto.com/id/974877012/photo/a-sweet-dried-fruit-golden-raisins-or-vitis-vinifera-l-var-apyrena-kishmish-or-zante-currant.jpg?s=612x612&w=0&k=20&c=GXsf2GohOelfEev00W1wxurB247YCHagcHEdq269WzA=', 
     desc: 'Vitaminlarga boy sabzi.',
-    stock: 75,
+    stock: 100,
     unit: 'kg'
   },
   { 
     id: 4, 
-    name: 'Pomidor', 
+    name: 'O`rik quritilgan', 
     category: 'vegetables', 
-    image: 'https://images.unsplash.com/photo-1746469471553-afa9f34157fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8', 
+    image: 'https://media.istockphoto.com/id/542330328/photo/organic-raw-dry-apricots.jpg?s=612x612&w=0&k=20&c=_hXZ6EDk4h0fcbEj-bequdeN_YtWpPOJLqYMw_Ipz5s=', 
     desc: 'Yangi pomidor.',
-    stock: 60,
+    stock: 100,
     unit: 'kg'
   },
   { 
     id: 5, 
-    name: 'Sharbat', 
+    name: 'Anjir', 
     category: 'berries', 
-    image: 'https://images.unsplash.com/photo-1746469471553-afa9f34157fd?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHwzfHx8ZW58MHx8fHx8', 
+    image: 'https://media.istockphoto.com/id/909621368/photo/dried-figs-on-a-dark-rustic-background.jpg?s=612x612&w=0&k=20&c=63NpXEoHxoTNcG0T1Ei8-wJAsH8b6NnlWfTPwmdMEdo=', 
     desc: 'Tabiiy sharbat.',
-    stock: 30,
-    unit: 'litr'
+    stock: 10,
+    unit: 'kg'
+  },
+  { 
+    id: 6, 
+    name: 'Quritilgan olxo`ri', 
+    category: 'berries', 
+    image: 'https://media.istockphoto.com/id/1212585647/photo/prunes-in-white-ceramic-bowl-on-white-rustic-table.jpg?s=612x612&w=0&k=20&c=bruqgpyLW-IWln3Vm-S742zelFox3ywnDyVIJ5ROOH0=', 
+    desc: 'Tabiiy sharbat.',
+    stock: 10,
+    unit: 'kg'
+  },
+  { 
+    id: 7, 
+    name: 'O`rik', 
+    category: 'berries', 
+    image: 'https://images.unsplash.com/photo-1595412017587-b7f3117dff54?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZHJ5JTIwQXByaWNvdHxlbnwwfHwwfHx8MA%3D%3D', 
+    desc: 'Tabiiy sharbat.',
+    stock: 100,
+    unit: 'kg'
   },
 ];
+
+// Telegram bot uchun token va chat ID (bularni o'zingizning bot tokeningiz va chat ID bilan almashtiring)
+const TELEGRAM_BOT_TOKEN = "7532088606:AAHTUo3KRfQbF4WHfF5pdhQKnAovKZCM4gU"; // Bot tokenini kiriting
+const TELEGRAM_CHAT_ID = "6429299277"; // Chat ID ni kiriting
 
 const ProductsPage = ({ language }) => {
   const [selectedCategory, setSelectedCategory] = useState('all');
@@ -71,6 +93,7 @@ const ProductsPage = ({ language }) => {
   const [showCheckout, setShowCheckout] = useState(false);
   const [checkoutForm, setCheckoutForm] = useState({ name: '', phone: '', address: '' });
   const [orderSuccess, setOrderSuccess] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const sheetRef = useRef(null);
 
   // Filter mahsulotlar
@@ -157,22 +180,101 @@ const ProductsPage = ({ language }) => {
     return 'cart-side-sheet';
   };
 
-  const handleCheckout = (e) => {
+  // Buyurtmani Telegram botga yuborish
+  const sendOrderToTelegram = async (orderData) => {
+    try {
+      const { customerInfo, products } = orderData;
+      
+      // Mahsulotlar haqida matn tayyorlash
+      let productsText = "🛒 *Mahsulotlar:*\n";
+      products.forEach((item, index) => {
+        productsText += `${index + 1}. ${item.name} - ${item.count} ${item.unit}\n`;
+      });
+      
+      // Mijoz ma'lumotlari
+      const customerText = `
+👤 *Mijoz ma'lumotlari:*
+Ismi: ${customerInfo.name}
+Telefon: ${customerInfo.phone}
+Manzil: ${customerInfo.address}
+      `;
+      
+      // Jami mahsulotlar soni
+      const totalItems = products.reduce((sum, item) => sum + item.count, 0);
+      const totalText = `\n✅ *Jami:* ${totalItems} ta mahsulot`;
+      
+      // To'liq xabar
+      const message = `🆕 *YANGI BUYURTMA*\n\n${productsText}\n${customerText}${totalText}`;
+      
+      // Telegram API ga so'rov yuborish
+      const telegramUrl = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`;
+      const response = await fetch(telegramUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          chat_id: TELEGRAM_CHAT_ID,
+          text: message,
+          parse_mode: 'Markdown'
+        })
+      });
+      
+      const data = await response.json();
+      
+      if (!data.ok) {
+        throw new Error(data.description || 'Telegram botga yuborishda xatolik');
+      }
+      
+      return true;
+    } catch (error) {
+      console.error('Telegram botga yuborishda xatolik:', error);
+      throw error;
+    }
+  };
+
+  const handleCheckout = async (e) => {
     e.preventDefault();
     if (!checkoutForm.name.trim() || !checkoutForm.phone.trim() || !checkoutForm.address.trim()) {
       alert(translations[language].orderError);
       return;
     }
     
-    // Bu yerda buyurtmani serverga yuborish mumkin
-    setOrderSuccess(true);
-    setTimeout(() => {
-      setCart([]);
-      setIsCartOpen(false);
-      setShowCheckout(false);
-      setCheckoutForm({ name: '', phone: '', address: '' });
-      setOrderSuccess(false);
-    }, 2000);
+    setIsLoading(true);
+    
+    try {
+      // Buyurtma ma'lumotlarini tayyorlash
+      const orderData = {
+        customerInfo: {
+          name: checkoutForm.name,
+          phone: checkoutForm.phone,
+          address: checkoutForm.address
+        },
+        products: cart.map(item => ({
+          id: item.id,
+          name: item.name,
+          count: item.count,
+          unit: item.unit
+        }))
+      };
+      
+      // Telegram botga yuborish
+      await sendOrderToTelegram(orderData);
+      
+      // Muvaffaqiyatli buyurtma
+      setOrderSuccess(true);
+      setTimeout(() => {
+        setCart([]);
+        setIsCartOpen(false);
+        setShowCheckout(false);
+        setCheckoutForm({ name: '', phone: '', address: '' });
+        setOrderSuccess(false);
+      }, 2000);
+    } catch (error) {
+      alert(`Buyurtma yuborishda xatolik: ${error.message}`);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSearch = (e) => {
@@ -212,7 +314,7 @@ const ProductsPage = ({ language }) => {
       <div className="products-grid">
         {filteredProducts.length === 0 ? (
           <div className="products-page-empty">
-            <span className="empty-icon">🔍</span>
+            <span className="empty-icon">😭</span>
             <p>{translations[language].nothingFound}</p>
           </div>
         ) : filteredProducts.map(product => (
@@ -292,9 +394,6 @@ const ProductsPage = ({ language }) => {
               <div className="empty-cart">
                 <span className="empty-cart-icon">🛒</span>
                 <p>{translations[language].emptyCart}</p>
-                <Link to="/products" className="continue-shopping-btn">
-                  {translations[language].continueShopping}
-                </Link>
               </div>
             ) : (
               <>
@@ -361,14 +460,19 @@ const ProductsPage = ({ language }) => {
                         />
                       </div>
                       <div className="checkout-buttons">
-                        <button type="submit" className="confirm-btn" disabled={orderSuccess}>
-                          {orderSuccess ? translations[language].orderSuccess : translations[language].confirmOrder}
+                        <button 
+                          type="submit" 
+                          className="confirm-btn" 
+                          disabled={orderSuccess || isLoading}
+                        >
+                          {isLoading ? 'Yuborilmoqda...' : 
+                            orderSuccess ? translations[language].orderSuccess : translations[language].confirmOrder}
                         </button>
                         <button 
                           type="button" 
                           onClick={() => setShowCheckout(false)} 
                           className="cancel-btn"
-                          disabled={orderSuccess}
+                          disabled={orderSuccess || isLoading}
                         >
                           {translations[language].cancel}
                         </button>
@@ -385,4 +489,4 @@ const ProductsPage = ({ language }) => {
   );
 };
 
-export default ProductsPage; 
+export default ProductsPage;
